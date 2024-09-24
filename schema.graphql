@@ -3,7 +3,7 @@ type Transfer @entity(immutable: true) {
   id: ID! # Unique identifier for the transfer entity
   from: Account! # Reference to the Account entity sending the tokens
   to: Account! # Reference to the Account entity receiving the tokens
-  tokenID: BigInt! # Amount of tokens transferred
+  tokenID: BigInt! # ID of token transferred
   timestamp: BigInt! # Timestamp when the transfer occurred
 }
 
