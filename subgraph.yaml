@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Hashmask
+    network: mainnet
+    source:
+      address: "0xC2C747E0F7004F9E8817Db2ca4997657a7746928"
+      abi: Hashmask
+      startBlock: 11743743
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: Hashmask
+          file: ./abis/Hashmask.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/hashmask.ts
